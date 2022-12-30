@@ -3,6 +3,7 @@ const connectDB = require('./Database/connect');
 const app = express();
 const Order = require('./Routes/Order')
 require('dotenv').config();
+const notFound = require('./middleware/not-found');
 
 //middleware
 app.use(express.json());
@@ -11,10 +12,10 @@ app.use(express.json());
 
 
 //Routes
-app.get('/' , (req,res)=>
-    res.send('Initialize the app'));
+
 
 app.use('/api/management/order',Order);
+app.use(notFound);
 
 const port = 3000;
 

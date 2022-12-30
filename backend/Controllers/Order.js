@@ -1,26 +1,21 @@
 const Order = require("../Models/Order");
+const wrap = require('handle-try-catch');
 
-const viewAllOrders = async (req,res) =>{
-    try {
+
+const viewAllOrders = wrap(async (req,res) =>{
+    
         const order = await Order.find({})
-        res.status(200).json({order});
-    } catch (error) {
-        res.status(500).json({msg:error})
-    }
-}
+        res.status(200).json({order}); 
+})
 
-const createOrder = async (req , res) => {
-    try{
+const createOrder = wrap(async (req , res) => {
     const order = await Order.create(req.body);
     res.status(200).json({order});
 
-    }catch (error){
-        res.status(500).json({msg:error});
-    }
-}
+})
 
-const viewOrder = async (req , res) => {
-    try {
+const viewOrder = wrap(async (req , res) => {
+  
     const {id:orderId} = req.params;    
     const order = await Order.findOne({_id:orderId});
 
@@ -29,14 +24,10 @@ const viewOrder = async (req , res) => {
     }
 
     res.status(200).json({order});
+})
 
-    } catch (error) {
-        res.status(500).json({msg:error});
-    }
-}
+const updateOrder =wrap(async (req , res) => {
 
-const updateOrder =async (req , res) => {
-   try {
     const {id:orderId} = req.params;
     const order = await Order.findByIdAndUpdate({_id:orderId},req.body,{
         new:true,
@@ -48,14 +39,10 @@ const updateOrder =async (req , res) => {
     }
 
     res.status(200).json({order});
+})
 
-   } catch (error) {
-    res.status(500).json({msg:error});
-   }
-}
+const cancelOrder = wrap(async(req , res) => {
 
-const cancelOrder = async(req , res) => {
-    try {
     const {id:orderId } = req.params;
     const order = await Order.findOneAndRemove({_id:orderId});
 
@@ -65,10 +52,7 @@ const cancelOrder = async(req , res) => {
 
     res.status(200).json({order});
 
-    } catch (error) {
-        res.status(500).json({msg:error});
-    }
-}
+})
 
 
 module.exports = {
