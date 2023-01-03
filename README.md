@@ -1,5 +1,5 @@
-<h1 align="center">TastyBuds</h1>
-<h2 align="center">Restaurant Management System</h2>
+<h1 align="center">TastyBuds - Restaurant Management System</h1>
+
 
 <h1 align="center">
 🌐 MERN Stack
