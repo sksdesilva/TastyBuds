@@ -4,9 +4,12 @@ const app = express();
 const Order = require('./Routes/Order')
 require('dotenv').config();
 const notFound = require('./middleware/not-found');
+const cors = require('cors');
+
 
 //middleware
 app.use(express.json());
+app.use(cors());
 
 
 
@@ -17,7 +20,7 @@ app.use(express.json());
 app.use('/api/management/order',Order);
 app.use(notFound);
 
-const port = 3000;
+const port = 8000;
 
 
 const start = async () =>{
