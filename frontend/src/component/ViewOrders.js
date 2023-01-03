@@ -20,15 +20,64 @@ const ViewOrders = () =>{
     },[])
 
     return(
-        <>
+        <div className="tableHolder">
+            <div className="tableOrder">
+            <div className="row">
+               <div className="col-3">
+                <p>Order No.</p>
+               </div>
+               <div className="col-3">
+               <p>Order No.</p>
+               </div>
+               <div className="col-3">
+               <p>Order No.</p>
+               </div>
+               <div className="col-3">
+               <p>Order No.</p>
+               </div>
+               </div>
+
+            </div>
+      
+    
+  
         {order.map((val,index)=>{
+
+           
             return(
-                <div key={index}>
-                    <h1>{val.cusName}</h1>
+               <div className="tableOrder" key={index}>
+               <div className="row">
+               <div className="col-3">
+                {val.cusName}
+               </div>
+               <div className="col-3">
+                {val.foodName}
+               </div>
+               <div className="col-3">
+                {val.quntity}
+               </div>
+               <div className="col-3">
+                {val.orderTime}
+               </div>
+               {/* {val.foodName}
+               {val.quntity}
+               {val.orderTime} */}
+               </div>
+                
+                
+               
+                
+                
+                    
+               
                 </div>
             )
+          
         })}
-        </>
+  
+        
+         
+        </div>
     )
 }
 export default ViewOrders;
