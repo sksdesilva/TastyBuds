@@ -3,23 +3,40 @@ import axios from 'axios';
 import './ViewOrder.css';
 import { FaEdit} from 'react-icons/fa';
 import { FaRegWindowClose} from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
-const ViewOrders = () =>{
+
+const ViewOrders = (props) =>{
 
     const [order,setOrder] = useState([]);
 
-    useEffect(()=>{
-        function getOrders(){
-            axios.get('http://localhost:8000/api/management/order').then((res)=>{
-                console.log(res.data.order);
-                setOrder(res.data.order);
-            }).catch((err)=>{
-                alert(err.message);
-            })
-        }
+    function getOrders(){
+        axios.get('http://localhost:8000/api/management/order').then((res)=>{
+            console.log(res.data.order);
+            setOrder(res.data.order);
+        }).catch((error)=>{
+            alert(error.response.data);
+        })
+    }
 
+    useEffect(()=>{
         getOrders();
     },[])
+
+
+
+const cancelOrder = (id) =>{
+    console.log(id);
+    axios.delete(`http://localhost:8000/api/management/order/${id}`).then((res)=>{
+        alert("Order cancelled sucesfuly");
+        getOrders();
+    
+    })
+    .catch((error)=>{
+        alert(error.response.data);
+    })
+}
+
 
     return(
         <div className="tableHolder">
@@ -69,10 +86,20 @@ const ViewOrders = () =>{
                </div>
                <div className="col-2">
                 <span className="editicon">
+                
+                <Link to ={`/updateOrder/${val._id}`}>
                 <FaEdit/>
+                </Link>
+                
+                
                 </span>
+               
                 <span className="editicon">
+               
+                <button className="updatebtn" onClick={()=>cancelOrder(val._id)}>
                 <FaRegWindowClose/>
+                </button>
+                
                 </span>
                 
                </div>
