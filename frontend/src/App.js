@@ -5,6 +5,7 @@ import ViewOrders from './component/ViewOrders';
 import CreateOrder from './component/CreateOrder';
 import Home from './component/Home';
 import UpdateOrder from './component/UpdateOrder';
+import CancelOrder from './component/CancelOrder';
 
 
 const App = () =>{
@@ -20,7 +21,8 @@ const App = () =>{
 
        <Route path="/" element={<Home/>}/>
         <Route path="/createorder" element={<CreateOrder/>}/>
-        <Route path="/create" element={<UpdateOrder/>}/>
+        <Route path="/updateOrder" element={<UpdateOrder/>}/>
+        
        
         </Routes>
         </BrowserRouter>
