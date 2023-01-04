@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import ViewOrders from './component/ViewOrders';
+import CreateOrder from './component/CreateOrder';
+import Home from './component/Home';
+import UpdateOrder from './component/UpdateOrder';
 
 
 const App = () =>{
@@ -10,7 +13,18 @@ const App = () =>{
      return(
 
         <>
-        <ViewOrders/>
+         
+        
+       <BrowserRouter>
+       <Routes>
+
+       <Route path="/" element={<Home/>}/>
+        <Route path="/createorder" element={<CreateOrder/>}/>
+        <Route path="/create" element={<UpdateOrder/>}/>
+       
+        </Routes>
+        </BrowserRouter>
+      
         </>
     );
 }
