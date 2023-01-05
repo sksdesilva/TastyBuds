@@ -6,6 +6,7 @@ import { FaRegWindowClose} from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
 
+
 const ViewOrders = (props) =>{
 
     const [order,setOrder] = useState([]);
@@ -22,6 +23,15 @@ const ViewOrders = (props) =>{
     useEffect(()=>{
         getOrders();
     },[])
+
+
+const updateOrder = (id,cusName,foodName,quntity,time) =>{
+    localStorage.setItem(`Id`,id);
+    localStorage.setItem(`name`,cusName);
+    localStorage.setItem(`food`,foodName);
+    localStorage.setItem(`quntity`,quntity);
+    localStorage.setItem(`time`,time);
+}
 
 
 
@@ -87,9 +97,12 @@ const cancelOrder = (id) =>{
                <div className="col-2">
                 <span className="editicon">
                 
-                <Link to ={`/updateOrder/${val._id}`}>
+                <Link to={`/updateOrder`}>
+                <button onClick={() => updateOrder(val._id,val.cusName,val.foodName,val.quntity,val.orderTime)}>
                 <FaEdit/>
+                </button>
                 </Link>
+            
                 
                 
                 </span>
