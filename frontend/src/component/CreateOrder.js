@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import './CreateOrder.css';
 
 const CreateOrder = () => {
     /*rafce - code snippet*/
@@ -30,6 +31,7 @@ function createOrder(event){
 
   return (
     <div className='container'>
+      <h2>Create order</h2>
 
 <form onSubmit={createOrder}>
   <div className="form-group">
