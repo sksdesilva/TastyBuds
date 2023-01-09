@@ -20,7 +20,7 @@ const OrderSchema = new Schema({
         trim:true,
     },
     orderTime:{
-        type:Number,
+        type:String,
         required:[true,'must provide name'],
         trim:true,
     }
