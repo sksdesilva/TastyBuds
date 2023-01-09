@@ -1,13 +1,17 @@
 import React from 'react';
 import ViewOrders from './ViewOrders';
 import CreateOrder from './CreateOrder';
+import Navbar from './Navbar';
 import './Home.css';
 import { Link } from 'react-router-dom';
+import SlideBar from './SlideBar';
+
 
 
 const Home = () => {
   return (
-    <div>
+    <div className='mainContainer'>
+      
       <h1>Tasty Buds</h1>
       <h2>Order management System</h2>
 
@@ -17,9 +21,12 @@ const Home = () => {
       </Link>
       </div>
 
-      <h3 id="subheading">Order List</h3>
+     
+
+   
 
         <ViewOrders/>
+        <SlideBar/>
         
       
     </div>
