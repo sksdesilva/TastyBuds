@@ -19,8 +19,8 @@ function SlideBar() {
                         <img src='https://cdn2.vectorstock.com/i/1000x1000/36/16/gold-sd-letter-logo-design-sd-logo-design-sd-logo-vector-37403616.jpg/logo512.png' alt="logo"></img>
                     </span>
                     <div className='text header-text'>
-                        <span className='order'>Order </span>
-                        <span className='Inventory'>Inventory </span>
+                        <span className='order'>TastyBuds</span>
+                        <span className='Inventory'>Management System </span>
                     </div>
                 </div>
                 <i className='bx bx-chevron-right toggle'></i>
