@@ -10,6 +10,15 @@ const[foodName,setFoodName]=useState("");
 const[quntity,setQuntity]=useState("");
 const[orderTime,setOrderTime] = useState("");
 
+function clearData(event){
+  Array.from(event.target).forEach((e)=>(e.value=""));
+}
+
+function generateTime(){
+  var time = new Date();
+  return time.toLocaleTimeString();
+}
+
 function createOrder(event){
     event.preventDefault();
 
@@ -22,6 +31,14 @@ function createOrder(event){
     console.log(order);
     axios.post('http://localhost:8000/api/management/order',order).then(()=>{
         alert("order is submitted");
+
+        clearData(event);
+
+        setName("");
+        setFoodName("");
+        setQuntity("");
+        setOrderTime("");
+
 
 
     }).catch((error)=>{
@@ -55,7 +72,7 @@ function createOrder(event){
   </div>
   <div className="form-group">
     <label for="exampleInputPassword1">Order time</label>
-    <input type="text" className="form-control" id="OrderTime" placeholder="Order Time" onChange={(event)=>{
+    <input type="text" className="form-control" id="OrderTime" placeholder="Order Time"  onChange={(event)=>{
         
         setOrderTime(event.target.value);
     }}/>
