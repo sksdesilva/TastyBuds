@@ -1,7 +1,13 @@
-.tableOrder{
+.tableHolder{
     margin-top: 60px;
+    width:65%;
     margin-bottom: 1px;
-    margin-left: 240px;
+    margin-left: 280px;
+    background-color: #E4E9F7;
+}
+.tableOrder{
+    margin-bottom: 40px;
+    background-color: #fff;
 }
 .editicon{
     margin-right: 50px;
