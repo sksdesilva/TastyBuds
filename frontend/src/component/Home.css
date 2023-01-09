@@ -1,11 +1,22 @@
+body{
+        background-color: #E4E9F7;
+    
+}
+.mainContainer{
+    background-color: #E4E9F7;
+}
+
 h1,h2{
+    position: relative;
     text-align: center;
 }
+
 .createOrder{
     margin-top: 20px;
     margin-left: 700px;
+    background-color: #E4E9F7;
 }
 #subheading{
     margin-top: 20px;
-    margin-left: 240px;
+    margin-left: 260px;
 }
