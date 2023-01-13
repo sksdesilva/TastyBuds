@@ -11,11 +11,14 @@
 }
 .editicon{
     margin-right: 50px;
+    background-color:white;
+    color: #fff;
 }
 .updatebtn{
     
     background-color:white;
     border-color: white;
-
+    justify-content: center;
+    align-items: center;
 
 }
